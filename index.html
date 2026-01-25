@@ -1,28 +1,59 @@
 <!doctype html>
 <html lang="en">
-    <head>
+  <head>
     <meta charset="UTF-8" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TaxSonic Global - Regulatory Risk, Tax Intelligence, Governance Advisory</title>
-    <meta name="description" content="TaxSonic Global - Premium regulatory risk, tax intelligence, and governance advisory for businesses navigating complexity with confidence." />
+
+    <!-- Primary SEO -->
+    <title>TaxSonic Global – Regulatory Risk, Tax Intelligence & Governance Advisory</title>
+    <meta
+      name="description"
+      content="TaxSonic Global is a premium regulatory risk, tax intelligence, and governance advisory firm helping businesses scale with confidence."
+    />
     <meta name="robots" content="index, follow" />
 
-    <meta property="og:title" content="TaxSonic Global - Regulatory Risk, Tax Intelligence, Governance Advisory" />
-    <meta property="og:description" content="Premium regulatory risk, tax intelligence, and governance advisory for businesses navigating complexity with confidence." />
+    <!-- Open Graph -->
+    <meta property="og:title" content="TaxSonic Global – Regulatory Risk & Governance Advisory" />
+    <meta
+      property="og:description"
+      content="Premium regulatory risk, tax intelligence, and governance advisory for businesses navigating complexity with confidence."
+    />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.taxsonicglobal.com" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="TaxSonic Global" />
-    <meta name="twitter:description" content="Premium regulatory risk, tax intelligence, and governance advisory." />
+    <meta
+      name="twitter:description"
+      content="Premium regulatory risk, tax intelligence, and governance advisory."
+    />
 
     <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E4YB2PCSGD"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-E4YB2PCSGD"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-E4YB2PCSGD');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-E4YB2PCSGD");
     </script>
   </head>
 
+  <body>
+    <!-- React Mount Point -->
+    <div id="root"></div>
+
+    <!-- Vite Entry -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
