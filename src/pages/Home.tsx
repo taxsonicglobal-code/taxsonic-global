@@ -1,131 +1,193 @@
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
-const services = [
-  {
-    title: "Regulatory Risk & Governance",
-    description:
-      "Identify and mitigate regulatory exposure across leadership decisions, structures, and operations.",
-    href: "/services/regulatory-risk",
-  },
-  {
-    title: "Strategic Tax Structuring",
-    description:
-      "Design defensible domestic and cross-border structures aligned with regulatory intent.",
-    href: "/services/tax-structuring",
-  },
-  {
-    title: "Finance & Control Architecture",
-    description:
-      "Build scalable finance, compliance, and internal control systems for growth and scrutiny.",
-    href: "/services/finance-architecture",
-  },
-  {
-    title: "Risk Diagnostic",
-    description:
-      "Structured assessment to uncover hidden regulatory, financial, and governance exposure.",
-    href: "/services/risk-diagnostic",
-  },
-  {
-    title: "Forensic Readiness",
-    description:
-      "Strengthen fraud prevention, internal discipline, and forensic preparedness.",
-    href: "/services/forensic-readiness",
-  },
-  {
-    title: "IPO Readiness Advisory",
-    description:
-      "Advisory-only readiness for funding, institutional scrutiny, and capital markets.",
-    href: "/services/ipo-readiness",
-  },
-];
-
-const Home = () => {
+export default function Home() {
   return (
     <>
-      {/* HERO SECTION */}
-      <section className="container-wide pt-32 pb-24">
-        <h1 className="text-5xl md:text-6xl font-serif mb-6 leading-tight">
-          Regulatory Risk. <br />
-          Tax Intelligence. <br />
-          Governance Confidence.
-        </h1>
+      {/* ================= HERO ================= */}
+      <motion.section
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="pt-28 pb-24 bg-white"
+      >
+        <div className="container-wide grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h1 className="font-serif text-5xl lg:text-6xl leading-tight mb-6">
+              Regulatory Risk.<br />
+              Tax Intelligence.<br />
+              <span className="text-gold">Governance Confidence.</span>
+            </h1>
 
-        <p className="max-w-3xl text-lg text-muted-foreground mb-10">
-          TaxSonic Global is a premium regulatory risk, tax structuring, and
-          governance advisory firm helping businesses reduce exposure, build
-          defensible structures, and scale with long-term confidence.
-        </p>
+            <p className="text-lg text-muted-foreground max-w-xl mb-10">
+              TaxSonic Global is a premium regulatory risk, tax structuring,
+              and governance advisory firm helping businesses reduce exposure,
+              build defensible structures, and scale with long-term confidence.
+            </p>
 
-        <div className="flex flex-wrap gap-4">
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center rounded-md bg-black px-8 py-4 text-sm font-medium text-white hover:opacity-90 transition"
-          >
-            Request Advisory
-          </Link>
+            <div className="flex gap-4">
+              <Button size="lg" variant="gold" asChild>
+                <Link to="/contact">Request Advisory</Link>
+              </Button>
 
-          <Link
-            to="/services"
-            className="inline-flex items-center justify-center rounded-md border border-border px-8 py-4 text-sm font-medium hover:bg-muted transition"
-          >
-            View Services
-          </Link>
+              <Button size="lg" variant="outline" asChild>
+                <Link to="/services">View Services</Link>
+              </Button>
+            </div>
+          </div>
+
+          <div className="border border-neutral-200 bg-neutral-50 p-10">
+            <h3 className="font-serif text-xl mb-6">
+              Advisory-Led. Independent. Risk-Focused.
+            </h3>
+            <ul className="space-y-4 text-sm text-muted-foreground">
+              <li>• Advisory-only, no execution or conflicts</li>
+              <li>• Board, promoter, and CFO perspective</li>
+              <li>• Designed for scrutiny and scale</li>
+              <li>• Clear scope and professional boundaries</li>
+            </ul>
+          </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* SERVICES PREVIEW */}
-      <section className="bg-muted/30 py-24">
+      {/* ================= SERVICES ================= */}
+      <motion.section
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45 }}
+        viewport={{ once: true }}
+        className="py-24 bg-neutral-50"
+      >
         <div className="container-wide">
-          <h2 className="text-3xl font-serif mb-6">
-            Advisory Services
-          </h2>
+          <div className="max-w-2xl mb-14">
+            <h2 className="font-serif text-4xl mb-4">
+              Advisory Services
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Focused on prevention, preparedness, and governance maturity —
+              not routine compliance or execution.
+            </p>
+          </div>
 
-          <p className="max-w-3xl text-muted-foreground mb-14">
-            Our advisory-led services focus on risk prevention, governance
-            maturity, and regulatory alignment — not routine compliance or
-            execution.
-          </p>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Regulatory Risk Advisory",
+                desc:
+                  "Identify and mitigate regulatory exposure before it escalates into scrutiny or enforcement.",
+                link: "/services/regulatory-risk",
+              },
+              {
+                title: "Tax Structuring Advisory",
+                desc:
+                  "Design tax structures aligned with commercial reality and long-term defensibility.",
+                link: "/services/tax-structuring",
+              },
+              {
+                title: "Finance & Control Architecture",
+                desc:
+                  "Build scalable finance, MIS, and internal control frameworks.",
+                link: "/services/finance-architecture",
+              },
+              {
+                title: "Risk Diagnostic",
+                desc:
+                  "Independent, forensic-style assessment of regulatory and governance risk.",
+                link: "/services/risk-diagnostic",
+              },
+              {
+                title: "Forensic Readiness",
+                desc:
+                  "Prepare documentation and decision trails for regulatory scrutiny.",
+                link: "/services/forensic-readiness",
+              },
+              {
+                title: "IPO Readiness",
+                desc:
+                  "Governance and risk readiness for listing — advisory only.",
+                link: "/services/ipo-readiness",
+              },
+            ].map((item) => (
               <Link
-                key={service.title}
-                to={service.href}
-                className="group border border-border rounded-xl p-6 bg-background hover:border-foreground transition"
+                key={item.title}
+                to={item.link}
+                className="group border border-neutral-200 bg-white p-8
+                           transition-all duration-300
+                           hover:-translate-y-1 hover:shadow-lg hover:border-gold"
               >
-                <h3 className="text-lg font-medium mb-3 group-hover:underline">
-                  {service.title}
+                <h3 className="font-serif text-xl mb-3 transition-colors group-hover:text-gold">
+                  {item.title}
                 </h3>
-
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  {service.description}
+                  {item.desc}
                 </p>
-
-                <span className="inline-block mt-4 text-sm font-medium">
-                  Learn more →
-                </span>
               </Link>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* POSITIONING SECTION */}
-      <section className="container-wide py-24">
-        <h2 className="text-3xl font-serif mb-6">
-          Advisory-led. Independent. Defensible.
-        </h2>
+      {/* ================= WHY CHOOSE ================= */}
+      <motion.section
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45 }}
+        viewport={{ once: true }}
+        className="py-24 bg-white"
+      >
+        <div className="container-wide">
+          <div className="max-w-3xl mb-14">
+            <h2 className="font-serif text-4xl mb-4">
+              Why Clients Choose <span className="text-gold">TaxSonic Global</span>
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              We advise where decisions carry regulatory, financial, and personal consequences.
+            </p>
+          </div>
 
-        <p className="max-w-3xl text-muted-foreground leading-relaxed">
-          TaxSonic Global operates as an independent advisory firm — not a
-          routine compliance, filing, or execution service provider. Our
-          engagement model prioritises clarity, scope discipline, and long-term
-          regulatory stability for founders, promoters, boards, and growth-stage
-          enterprises.
-        </p>
-      </section>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              "Advisory-only. No conflicts.",
+              "Risk-first, not checklist-driven.",
+              "Board and promoter perspective.",
+              "Forensic and regulatory depth.",
+              "Built for scrutiny and scale.",
+              "Clear scope and boundaries.",
+            ].map((point) => (
+              <div
+                key={point}
+                className="border border-neutral-200 p-8 bg-neutral-50"
+              >
+                <p className="font-medium">{point}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* ================= FINAL CTA ================= */}
+      <motion.section
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45 }}
+        viewport={{ once: true }}
+        className="py-24 bg-neutral-50"
+      >
+        <div className="container-narrow text-center">
+          <h2 className="font-serif text-4xl mb-6">
+            Ready to Reduce Risk and Build Confidence?
+          </h2>
+          <p className="text-muted-foreground text-lg mb-10">
+            Engage us early — before regulatory exposure becomes a liability.
+          </p>
+
+          <Button size="lg" variant="gold" asChild>
+            <Link to="/contact">Request Advisory Discussion</Link>
+          </Button>
+        </div>
+      </motion.section>
     </>
   );
-};
-
-export default Home;
+}

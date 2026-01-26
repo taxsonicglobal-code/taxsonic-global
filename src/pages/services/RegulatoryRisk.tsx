@@ -1,5 +1,4 @@
 import { SEO } from "@/components/SEO";
-import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -7,16 +6,19 @@ import { ArrowLeft, ArrowRight, Shield, CheckCircle } from "lucide-react";
 
 const RegulatoryRisk = () => {
   return (
-    <Layout>
-      <SEO 
+    <>
+      <SEO
         title="Regulatory Risk & Governance Advisory"
         description="Navigate complex regulatory environments with strategic foresight. TaxSonic Global helps businesses understand exposure, anticipate changes, and build resilient governance frameworks."
       />
-      
+
       {/* Breadcrumb */}
       <section className="pt-8 pb-4">
         <div className="container-wide">
-          <Link to="/services" className="inline-flex items-center text-muted-foreground hover:text-foreground">
+          <Link
+            to="/services"
+            className="inline-flex items-center text-muted-foreground hover:text-foreground"
+          >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Services
           </Link>
@@ -33,35 +35,41 @@ const RegulatoryRisk = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="w-16 h-16 bg-gold/20 rounded-sm flex items-center justify-center mb-6"
               >
-                <Shield className="w-8 h-8 text-gold-dark" />
+                <Shield className="w-8 h-8 text-gold" />
               </motion.div>
+
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="heading-display mb-6"
+                className="text-4xl md:text-5xl font-serif mb-6"
               >
-                Regulatory Risk &<br />
+                Regulatory Risk & <br />
                 <span className="text-gold">Governance Advisory</span>
               </motion.h1>
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-body text-xl"
+                className="text-lg text-muted-foreground"
               >
-                Navigate complex regulatory environments with strategic foresight. 
-                We help businesses understand their exposure, anticipate regulatory changes, 
-                and build governance frameworks that withstand scrutiny.
+                Navigate complex regulatory environments with strategic foresight.
+                We help businesses understand exposure, anticipate regulatory
+                change, and build governance frameworks that withstand scrutiny.
               </motion.p>
             </div>
+
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-cream p-8 lg:p-12 rounded-sm"
+              className="bg-muted p-8 lg:p-12 rounded-sm"
             >
-              <h3 className="font-serif text-xl font-medium mb-6">Key Focus Areas</h3>
+              <h3 className="font-serif text-xl font-medium mb-6">
+                Key Focus Areas
+              </h3>
+
               <ul className="space-y-4">
                 {[
                   "Regulatory landscape mapping and risk assessment",
@@ -72,7 +80,7 @@ const RegulatoryRisk = () => {
                   "Regulatory investigation preparedness",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-gold mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -83,36 +91,43 @@ const RegulatoryRisk = () => {
       </section>
 
       {/* Details */}
-      <section className="section-padding bg-charcoal text-primary-foreground">
-        <div className="container-narrow">
-          <h2 className="heading-section text-primary-foreground mb-8">Our Approach</h2>
-          <div className="prose prose-invert max-w-none">
-            <p className="text-primary-foreground/80 text-lg mb-6">
-              Regulatory risk is not just about compliance—it's about understanding how 
-              regulatory frameworks interact with your business strategy and positioning 
-              yourself for changes before they arrive.
-            </p>
-            <p className="text-primary-foreground/80 text-lg mb-6">
-              We bring a forensic mindset to regulatory risk assessment, examining not 
-              just what's required today but how requirements are likely to evolve and 
-              how current practices will appear under future scrutiny.
-            </p>
-            <p className="text-primary-foreground/80 text-lg">
-              Our governance advisory goes beyond box-checking to create frameworks 
-              that actually work—structures that support decision-making, protect the 
-              organization, and scale with growth.
-            </p>
-          </div>
+      <section className="bg-foreground text-background py-20">
+        <div className="container-wide max-w-4xl">
+          <h2 className="text-3xl font-serif mb-8">
+            Our Advisory Approach
+          </h2>
+
+          <p className="text-background/80 text-lg mb-6">
+            Regulatory risk is not just about compliance — it is about
+            understanding how regulation interacts with business strategy and
+            decision-making.
+          </p>
+
+          <p className="text-background/80 text-lg mb-6">
+            We apply a forensic mindset to regulatory risk, examining not only
+            present obligations but how current decisions will appear under
+            future scrutiny.
+          </p>
+
+          <p className="text-background/80 text-lg">
+            Our governance advisory focuses on creating frameworks that support
+            leadership, protect promoters and directors, and scale with growth.
+          </p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-padding">
-        <div className="container-narrow text-center">
-          <h2 className="heading-subsection mb-6">Ready to Strengthen Your Governance?</h2>
+      <section className="py-20">
+        <div className="container-wide text-center max-w-3xl">
+          <h2 className="text-3xl font-serif mb-6">
+            Strengthen Your Regulatory Position
+          </h2>
+
           <p className="text-muted-foreground mb-8">
-            Let's discuss your regulatory risk profile and governance needs.
+            Discuss your regulatory risk exposure and governance needs with our
+            advisory team.
           </p>
+
           <Button variant="gold" size="lg" asChild>
             <Link to="/contact">
               Request Advisory Discussion
@@ -121,7 +136,7 @@ const RegulatoryRisk = () => {
           </Button>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

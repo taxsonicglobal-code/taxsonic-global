@@ -1,91 +1,143 @@
 import { Link } from "react-router-dom";
 
-const services = [
-  {
-    title: "Regulatory Risk & Governance Advisory",
-    description:
-      "Identify, assess, and mitigate regulatory exposure across operations, leadership decisions, and governance frameworks.",
-    path: "/services/regulatory-risk",
-  },
-  {
-    title: "Strategic Tax & Entity Structuring",
-    description:
-      "Design sustainable domestic and cross-border structures aligned with regulatory intent and investor expectations.",
-    path: "/services/tax-structuring",
-  },
-  {
-    title: "Finance, Compliance & Control Architecture",
-    description:
-      "Build scalable finance, compliance, and internal control frameworks that support growth and institutional scrutiny.",
-    path: "/services/finance-architecture",
-  },
-  {
-    title: "Regulatory & Financial Risk Diagnostic",
-    description:
-      "Structured diagnostic to uncover hidden regulatory, financial, and governance exposure.",
-    path: "/services/risk-diagnostic",
-  },
-  {
-    title: "Forensic Readiness & Internal Control Advisory",
-    description:
-      "Strengthen fraud prevention, internal discipline, and forensic preparedness before issues arise.",
-    path: "/services/forensic-readiness",
-  },
-  {
-    title: "Growth, Capital & IPO Readiness Advisory",
-    description:
-      "Advisory-only readiness support for businesses preparing for funding and capital market scrutiny.",
-    path: "/services/ipo-readiness",
-  },
-];
-
-const Services = () => {
+export default function Services() {
   return (
-    <section className="container-wide pt-32 pb-24">
-      {/* Page Header */}
-      <h1 className="text-5xl font-serif mb-6">
-        Advisory Services
-      </h1>
+    <>
+      {/* ================= HEADER ================= */}
+      <section className="pt-28 pb-20 bg-white">
+        <div className="container-wide max-w-4xl">
+          <h1 className="font-serif text-5xl mb-6">
+            Advisory Services
+          </h1>
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            TaxSonic Global provides advisory-only services focused on regulatory
+            risk prevention, governance maturity, and defensible structuring.
+            We do not execute transactions or sell compliance.
+          </p>
+        </div>
+      </section>
 
-      <p className="max-w-3xl text-lg text-muted-foreground mb-14">
-        TaxSonic Global provides advisory-led services focused on regulatory
-        risk reduction, tax structuring integrity, and governance maturity.
-        We do not operate as a routine compliance or execution firm.
-      </p>
+      {/* ================= SERVICES LIST ================= */}
+      <section className="py-24 bg-neutral-50">
+        <div className="container-wide space-y-16">
 
-      {/* Services Grid */}
-      <div className="grid gap-10 md:grid-cols-2">
-        {services.map((service) => (
+          {/* Service Item */}
+          {[
+            {
+              title: "Regulatory Risk Advisory",
+              desc:
+                "Strategic assessment and mitigation of regulatory exposure across tax, corporate, FEMA, and governance frameworks.",
+              when:
+                "When promoters, boards, or management face increasing regulatory scrutiny or complex compliance environments.",
+              link: "/services/regulatory-risk",
+            },
+            {
+              title: "Tax Structuring Advisory",
+              desc:
+                "Design of tax structures aligned with commercial reality, substance, and long-term defensibility.",
+              when:
+                "When businesses are restructuring, expanding cross-border, or re-evaluating legacy structures.",
+              link: "/services/tax-structuring",
+            },
+            {
+              title: "Finance & Control Architecture",
+              desc:
+                "Design of finance functions, MIS, internal controls, and governance systems built to scale.",
+              when:
+                "When growing enterprises need institutional-grade finance and control frameworks.",
+              link: "/services/finance-architecture",
+            },
+            {
+              title: "Risk Diagnostic",
+              desc:
+                "Independent, forensic-style diagnosis of regulatory, tax, and governance risk.",
+              when:
+                "When leadership wants a clear, unbiased view of exposure before regulators ask questions.",
+              link: "/services/risk-diagnostic",
+            },
+            {
+              title: "Forensic Readiness",
+              desc:
+                "Preparation of documentation, decision trails, and governance processes for scrutiny.",
+              when:
+                "When organizations want to be prepared for audits, investigations, or regulatory reviews.",
+              link: "/services/forensic-readiness",
+            },
+            {
+              title: "IPO Readiness",
+              desc:
+                "Governance, risk, and compliance readiness for listing and public scrutiny.",
+              when:
+                "When promoters are preparing for institutional capital or future listing.",
+              link: "/services/ipo-readiness",
+            },
+          ].map((service) => (
+            <div
+              key={service.title}
+              className="grid lg:grid-cols-3 gap-8 border-t border-neutral-200 pt-12"
+            >
+              <div>
+                <h2 className="font-serif text-2xl mb-3">
+                  {service.title}
+                </h2>
+                <Link
+                  to={service.link}
+                  className="text-sm text-gold hover:underline"
+                >
+                  View service →
+                </Link>
+              </div>
+
+              <div className="lg:col-span-2 space-y-4">
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.desc}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-medium text-foreground">
+                    Typically engaged:
+                  </span>{" "}
+                  {service.when}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= ADVISORY BOUNDARIES ================= */}
+      <section className="py-24 bg-white">
+        <div className="container-narrow text-center">
+          <h2 className="font-serif text-3xl mb-6">
+            Clear Scope. Clear Boundaries.
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
+            TaxSonic Global operates strictly as an advisory firm. We do not
+            execute transactions, file statutory returns, represent clients
+            before authorities, or provide funding or listing guarantees.
+            Our role is to advise, structure, and prepare — independently and
+            without conflicts.
+          </p>
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-24 bg-neutral-50">
+        <div className="container-narrow text-center">
+          <h2 className="font-serif text-4xl mb-6">
+            Not Sure Which Service You Need?
+          </h2>
+          <p className="text-muted-foreground text-lg mb-10">
+            We help clients define the problem before prescribing the solution.
+          </p>
+
           <Link
-            key={service.title}
-            to={service.path}
-            className="group block rounded-xl border border-border p-8 transition hover:border-foreground hover:shadow-soft"
+            to="/contact"
+            className="inline-flex items-center justify-center rounded-md bg-gold px-8 py-4 text-sm font-medium text-black hover:opacity-90 transition"
           >
-            <h3 className="text-xl font-medium mb-3 group-hover:underline">
-              {service.title}
-            </h3>
-
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              {service.description}
-            </p>
-
-            <span className="text-sm font-medium text-foreground">
-              View details →
-            </span>
+            Request Advisory Discussion
           </Link>
-        ))}
-      </div>
-
-      {/* Advisory Disclaimer */}
-      <div className="max-w-4xl mt-20 border-t border-border pt-10">
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          All services are advisory-only unless explicitly agreed otherwise.
-          We do not provide statutory audit, legal opinions, merchant banking,
-          IPO execution, SEBI filings, or funding guarantees.
-        </p>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
-};
-
-export default Services;
+}
