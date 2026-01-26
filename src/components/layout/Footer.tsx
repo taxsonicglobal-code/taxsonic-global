@@ -3,16 +3,20 @@ import { Mail } from "lucide-react";
 
 const navigation = {
   main: [
+    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Industries", href: "/industries" },
     { name: "Contact", href: "/contact" },
   ],
+
   services: [
     { name: "Regulatory Risk Advisory", href: "/services/regulatory-risk" },
-    { name: "Tax Structuring", href: "/services/tax-structuring" },
-    { name: "Finance Architecture", href: "/services/finance-architecture" },
+    { name: "Tax Structuring Advisory", href: "/services/tax-structuring" },
+    { name: "Finance & Control Architecture", href: "/services/finance-architecture" },
+    { name: "Risk Diagnostic", href: "/services/risk-diagnostic" },
     { name: "Forensic Readiness", href: "/services/forensic-readiness" },
+    { name: "IPO Readiness Advisory", href: "/services/ipo-readiness" },
   ],
 };
 
