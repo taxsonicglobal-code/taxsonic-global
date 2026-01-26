@@ -1,19 +1,15 @@
-import { ReactNode } from "react";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
+import { Header } from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { Outlet } from "react-router-dom";
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-export function Layout({ children }: LayoutProps) {
+export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
       <Header />
-      <main className="flex-1 pt-20">
-        {children}
+      <main className="pt-20 min-h-screen bg-background">
+        <Outlet />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
