@@ -3,14 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "/logo.png";
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Industries", href: "/industries" },
-  { name: "What We Don't Do", href: "/exclusions" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -25,17 +23,22 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <nav className="container-wide flex items-center justify-between h-20">
+      <nav className="container-wide flex items-center justify-between h-20 px-6">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
-        <img src={logo}
-        alt="TaxSonic Global"
-        className="h-14 w-auto"
-        />
+          <img
+            src="/logo.png"
+            alt="TaxSonic Global"
+            className="h-14 w-auto"
+          />
 
           <div className="hidden sm:block">
-            <span className="font-serif text-xl font-semibold tracking-tight">TaxSonic</span>
-            <span className="font-serif text-xl font-light text-muted-foreground ml-1">Global</span>
+            <span className="font-serif text-xl font-semibold tracking-tight">
+              TaxSonic
+            </span>
+            <span className="font-serif text-xl font-light text-muted-foreground ml-1">
+              Global
+            </span>
           </div>
         </Link>
 
@@ -86,7 +89,7 @@ export function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-background border-b border-border"
           >
-            <div className="container-wide py-4 space-y-3">
+            <div className="container-wide px-6 py-4 space-y-3">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -101,8 +104,12 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
+
               <Button variant="gold" className="w-full mt-4" asChild>
-                <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  to="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Request Advisory
                 </Link>
               </Button>
