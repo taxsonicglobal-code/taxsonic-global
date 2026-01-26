@@ -27,11 +27,10 @@ export function Header() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
-            src="/logo.png"
+            src="/logo.jpg"
             alt="TaxSonic Global"
             className="h-14 w-auto"
-          />
-
+            />
           <div className="hidden sm:block">
             <span className="font-serif text-xl font-semibold tracking-tight">
               TaxSonic
