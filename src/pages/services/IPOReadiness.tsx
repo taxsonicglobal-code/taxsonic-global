@@ -123,19 +123,20 @@ const IPOReadiness = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding">
-        <div className="container-narrow text-center">
-          <h2 className="heading-subsection mb-6">Ready to Prepare for Growth?</h2>
-          <p className="text-muted-foreground mb-8">
-            Let's discuss your capital-raising or IPO readiness needs.
-          </p>
-          <Button variant="gold" size="lg" asChild>
-            <Link to="/contact">
-              Request Advisory Discussion
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </Button>
-        </div>
+      <div className="pt-10">
+  <a
+    href="/contact"
+    className="inline-flex items-center justify-center rounded-md bg-black px-8 py-4 text-sm font-medium text-white hover:opacity-90 transition"
+  >
+    Schedule a Discussion
+  </a>
+
+  <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground/80 max-w-2xl">
+    IPO Readiness services are advisory-only. IPO execution, listing,
+    SEBI filings (including DRHP/RHP), funding guarantees, and litigation
+    or investigation support are not included unless separately agreed.
+  </p>
+</div>
       </section>
     </Layout>
   );
