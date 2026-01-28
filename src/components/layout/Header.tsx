@@ -22,8 +22,8 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#FAF9F6]/95 backdrop-blur-sm border-b border-gold/30">
-      <nav className="container-wide flex items-center justify-between h-20 px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#FAF9F6] border-b border-gold/20">
+      <nav className="container-wide h-20 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
           <img
