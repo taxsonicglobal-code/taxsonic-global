@@ -107,7 +107,7 @@ export default function Contact() {
                 <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
                   Thank you for reaching out. Every advisory request is reviewed
                   personally. If there is a strategic fit, our team will contact
-                  you within <strong>1–2 business days</strong>.
+                  you within <strong>within 24 Hours</strong>.
                 </p>
 
                 <p className="mt-4 text-xs text-muted-foreground">
