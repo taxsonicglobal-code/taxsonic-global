@@ -1,119 +1,123 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { CheckCircle } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+
   return (
     <>
-      {/* ================= HEADER ================= */}
-      <section className="pt-28 pb-20 bg-white">
-        <div className="container-wide max-w-4xl">
-          <h1 className="font-serif text-5xl mb-6">
-            Request an Advisory Discussion
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            We engage selectively with founders, boards, and leadership teams
-            facing regulatory, governance, or risk complexity.
-          </p>
-        </div>
-      </section>
+      <SEO
+        title="Request Advisory Discussion | TaxSonic Global"
+        description="Initiate a private advisory discussion with TaxSonic Global. Regulatory risk, tax structuring, and governance advisory for founders, CFOs, and boards."
+      />
 
-      {/* ================= CONTEXT ================= */}
-      <section className="pb-20 bg-white">
-        <div className="container-wide max-w-4xl space-y-6">
-          <p className="text-muted-foreground leading-relaxed">
-            TaxSonic Global operates strictly as an advisory firm. Our role is to
-            help leadership teams understand exposure, design defensible
-            structures, and prepare for regulatory and institutional scrutiny.
-          </p>
+      <section className="section-padding">
+        <div className="container-narrow">
 
-          <p className="text-muted-foreground leading-relaxed">
-            We do not execute transactions, sell compliance services, represent
-            before authorities, or offer guarantees. This ensures independence,
-            objectivity, and long-term alignment with our clients.
-          </p>
-        </div>
-      </section>
-
-      {/* ================= FORM ================= */}
-      <section className="py-24 bg-neutral-50">
-        <div className="container-narrow max-w-3xl">
-          <div className="border border-neutral-200 bg-white p-10 rounded-sm">
-            <h2 className="font-serif text-2xl mb-8">
-              Advisory Intake
-            </h2>
-
-            <form className="space-y-6">
-              <div>
-                <label className="block text-sm mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:border-neutral-900"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm mb-2">
-                  Role / Designation
-                </label>
-                <input
-                  type="text"
-                  placeholder="Founder, CFO, Board Member, etc."
-                  className="w-full border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:border-neutral-900"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm mb-2">
-                  Organization
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:border-neutral-900"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="w-full border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:border-neutral-900"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm mb-2">
-                  Nature of Advisory Requirement
-                </label>
-                <textarea
-                  rows={4}
-                  placeholder="Briefly describe the context or challenge you would like to discuss."
-                  className="w-full border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:border-neutral-900"
-                />
-              </div>
-
-              <div className="pt-4">
-                <Button variant="gold" size="lg">
-                  Request Confidential Discussion
-                </Button>
-              </div>
-            </form>
+          {/* Header */}
+          <div className="mb-10">
+            <h1 className="heading-section mb-3">
+              Request Advisory Discussion
+            </h1>
+            <p className="text-muted-foreground max-w-xl">
+              This form helps us understand your context before initiating a
+              discussion. We engage selectively to ensure alignment, relevance,
+              and impact.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* ================= DISCLAIMER ================= */}
-      <section className="py-16 bg-white">
-        <div className="container-narrow text-center">
-          <p className="text-xs text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            TaxSonic Global provides advisory services only. We do not offer
-            statutory audit, execution support, regulatory representation,
-            funding guarantees, or litigation services unless separately agreed
-            in writing.
-          </p>
+          {/* Form Container */}
+          <div className="max-w-3xl bg-[#FAF9F6] border border-gold/20 rounded-md p-10">
+
+            {!submitted ? (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSubmitted(true);
+                }}
+                className="space-y-6"
+              >
+                {/* Name */}
+                <div>
+                  <label className="block text-sm mb-2">Full Name</label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm focus:border-gold focus:outline-none"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="block text-sm mb-2">Email Address</label>
+                  <input
+                    type="email"
+                    required
+                    className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm focus:border-gold focus:outline-none"
+                  />
+                </div>
+
+                {/* Organisation */}
+                <div>
+                  <label className="block text-sm mb-2">
+                    Organisation / Business
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm focus:border-gold focus:outline-none"
+                  />
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-sm mb-2">
+                    Briefly describe your requirement
+                  </label>
+                  <textarea
+                    rows={4}
+                    className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm focus:border-gold focus:outline-none"
+                  />
+                </div>
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  className="mt-4 inline-flex items-center justify-center rounded-md bg-black px-8 py-3 text-sm font-medium text-white hover:opacity-90 transition"
+                >
+                  Submit Advisory Request
+                </button>
+
+                <p className="pt-4 text-xs text-muted-foreground leading-relaxed">
+                  Advisory-only firm. Submission does not guarantee engagement.
+                  We do not provide execution, assurance, or funding guarantees.
+                </p>
+              </form>
+            ) : (
+              /* Success State */
+              <div className="text-center py-6">
+                <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-gold/40">
+                  <CheckCircle className="h-5 w-5 text-gold" />
+                </div>
+
+                <h3 className="font-serif text-xl mb-3">
+                  Advisory Request Received
+                </h3>
+
+                <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+                  Thank you for reaching out. Every advisory request is reviewed
+                  personally. If there is a strategic fit, our team will contact
+                  you within <strong>1–2 business days</strong>.
+                </p>
+
+                <p className="mt-4 text-xs text-muted-foreground">
+                  TaxSonic Global operates on a selective, advisory-only
+                  engagement basis.
+                </p>
+              </div>
+            )}
+
+          </div>
         </div>
       </section>
     </>
