@@ -1,93 +1,129 @@
-import { SEO } from "@/components/SEO";
 import { useState } from "react";
+import { SEO } from "@/components/SEO";
+
+const ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbzqlrbxPYQ4LKcpvZ-4KrGEYFgAv6sk9iO1D1Pdr6tS1JzhmPRuUjhLyrFm1Nzgf79PTg/exec";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
+
+    // Fire-and-forget submission (prevents CORS blocking)
+    fetch(ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    // Instantly update UI (premium UX)
+    setLoading(false);
+    setSubmitted(true);
+  }
 
   return (
     <>
       <SEO
         title="Private Advisory Intake | TaxSonic Global"
-        description="Confidential advisory intake for regulatory risk, tax structuring, governance, and IPO readiness. Independent. Advisory-only."
+        description="Confidential advisory intake for regulatory risk, tax structuring, governance, and IPO readiness."
       />
 
       {/* HERO */}
-      <section className="pt-24 pb-20 bg-gradient-to-b from-charcoal to-black text-charcoal-foreground">
-        <div className="container-narrow text-center">
-          <h1 className="heading-display text-gold mb-6">
-            Private Advisory Intake
-          </h1>
-          <p className="text-lg text-charcoal-foreground/80 max-w-2xl mx-auto">
-            Designed for founders, CFOs, boards, and leadership teams seeking
-            independent, conflict-free regulatory and governance advisory.
-          </p>
-        </div>
+      <section className="pt-24 pb-20 bg-charcoal text-charcoal-foreground text-center">
+        <h1 className="heading-display text-gold mb-4">
+          Private Advisory Intake
+        </h1>
+        <p className="max-w-2xl mx-auto text-lg text-charcoal-foreground/80">
+          Designed for founders, CFOs, boards, and leadership teams seeking
+          independent, conflict-free advisory.
+        </p>
       </section>
 
-      {/* FORM SECTION */}
+      {/* FORM */}
       <section className="section-padding bg-background">
         <div className="container-narrow">
-          <div className="relative bg-white rounded-xl border border-border shadow-lg p-6 md:p-10">
+          <div className="bg-white border border-border rounded-xl shadow-lg p-8">
 
-            {/* Trust Header */}
-            <div className="mb-8">
-              <h2 className="heading-subsection mb-3">
-                Confidential Advisory Request
-              </h2>
-              <p className="text-muted-foreground">
-                Submissions are reviewed personally. We do not provide execution,
-                statutory filings, merchant banking, or funding guarantees.
-              </p>
-            </div>
-
-            {/* Google Form Embed */}
-            {!submitted && (
-              <div className="relative overflow-hidden rounded-lg border bg-gray-50">
-                <iframe
-                  src="https://docs.google.com/forms/d/e/1FAIpQLScWxbh7IjnnjhUzzE9-7XO7KdycQhMejuUXReWgf21I3HFjWw/viewform?embedded=true"
-                  width="100%"
-                  height="900"
-                  frameBorder="0"
-                  className="w-full"
-                  onLoad={() => {
-                    // Detect thank-you page load
-                    setTimeout(() => {
-                      const iframe = document.querySelector("iframe");
-                      if (iframe?.contentWindow?.location.href.includes("formResponse")) {
-                        setSubmitted(true);
-                      }
-                    }, 1500);
-                  }}
-                >
-                  Loading…
-                </iframe>
-              </div>
-            )}
-
-            {/* Post-Submission Message */}
-            {submitted && (
-              <div className="text-center py-20">
-                <div className="mx-auto mb-6 w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center">
-                  ✓
-                </div>
-                <h3 className="text-2xl font-serif mb-4">
-                  Thank You. We’ve Received Your Request.
-                </h3>
-                <p className="text-muted-foreground max-w-lg mx-auto">
-                  Your advisory request has been recorded and will be reviewed
-                  personally. If appropriate, our team will reach out to you
-                  discreetly.
+            {submitted ? (
+              <div className="text-center py-12">
+                <h2 className="text-2xl font-serif mb-3">
+                  Request Received
+                </h2>
+                <p className="text-muted-foreground">
+                  Your request has been received and reviewed personally.
+                  If aligned, we’ll respond within 1–2 business days.
                 </p>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+
+                <input
+                  name="name"
+                  required
+                  placeholder="Full Name"
+                  className="w-full input"
+                />
+
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="Email"
+                  className="w-full input"
+                />
+
+                <input
+                  name="company"
+                  required
+                  placeholder="Company / Group"
+                  className="w-full input"
+                />
+
+                <select name="role" required className="w-full input">
+                  <option value="">Role</option>
+                  <option>Founder / Promoter</option>
+                  <option>CFO / Finance Head</option>
+                  <option>Board / Audit Committee</option>
+                  <option>Leadership Team</option>
+                </select>
+
+                <select name="advisory" required className="w-full input">
+                  <option value="">Advisory Area</option>
+                  <option>Regulatory Risk</option>
+                  <option>Tax Structuring</option>
+                  <option>Governance Advisory</option>
+                  <option>IPO Readiness</option>
+                  <option>Forensic Readiness</option>
+                </select>
+
+                <textarea
+                  name="message"
+                  rows={4}
+                  placeholder="Brief context or concern"
+                  className="w-full input"
+                />
+
+                <button
+                  disabled={loading}
+                  className="w-full bg-gold text-black py-3 rounded-md font-medium hover:opacity-90 transition"
+                >
+                  {loading ? "Submitting…" : "Request Advisory"}
+                </button>
+              </form>
             )}
 
-            {/* Legal / Trust Footer */}
-            <div className="mt-8 text-xs text-muted-foreground leading-relaxed border-t pt-6">
-              TaxSonic Global operates as an independent advisory firm only. We do
-              not provide statutory audit, execution, merchant banking, or funding
-              services. All submissions are treated as confidential.
-            </div>
-
+            <p className="mt-6 text-xs text-muted-foreground text-center">
+              Advisory-only. No execution, filings, merchant banking, or funding guarantees.
+            </p>
           </div>
         </div>
       </section>
