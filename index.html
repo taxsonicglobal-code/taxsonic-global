@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Basic -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <!-- Primary SEO -->
     <title>TaxSonic Global | Regulatory Risk, Tax & Governance Advisory</title>
@@ -12,7 +13,9 @@
       content="TaxSonic Global is a premium regulatory risk, tax structuring, and governance advisory firm serving founders, CFOs, and boards globally. Advisory-only. Independent. Conflict-free."
     />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.taxsonicglobal.com/" />
+
+    <!-- Canonical (IMPORTANT: keep only ONE version) -->
+    <link rel="canonical" href="https://taxsonicglobal.com/" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="TaxSonic Global | Regulatory Risk & Governance Advisory" />
@@ -21,7 +24,8 @@
       content="Premium regulatory risk, tax structuring, and governance advisory for leadership teams operating under scrutiny."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.taxsonicglobal.com/" />
+    <meta property="og:url" content="https://taxsonicglobal.com/" />
+    <meta property="og:site_name" content="TaxSonic Global" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -35,40 +39,42 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E4YB2PCSGD"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-E4YB2PCSGD');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-E4YB2PCSGD");
+    </script>
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "TaxSonic Global",
+        "url": "https://taxsonicglobal.com",
+        "description": "Premium regulatory risk, tax structuring, and governance advisory firm serving founders, CFOs, and boards globally.",
+        "areaServed": "Worldwide",
+        "founder": {
+          "@type": "Person",
+          "jobTitle": "Chartered Accountant & Forensic Audit Specialist"
+        },
+        "knowsAbout": [
+          "Regulatory Risk Advisory",
+          "Tax Structuring Advisory",
+          "Governance Advisory",
+          "Forensic Readiness",
+          "IPO Readiness Advisory"
+        ]
+      }
     </script>
   </head>
 
   <body>
-    <!-- React Mount Point -->
+    <!-- React Root -->
     <div id="root"></div>
 
-    <!-- Vite Entry (CRITICAL) -->
+    <!-- Vite Entry -->
     <script type="module" src="/src/main.tsx"></script>
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "TaxSonic Global",
-      "url": "https://www.taxsonicglobal.com",
-      "description": "Premium regulatory risk, tax structuring, and governance advisory firm serving founders, CFOs, and boards globally.",
-      "areaServed": "Global",
-      "founder": {
-        "@type": "Person",
-        "jobTitle": "Chartered Accountant & Forensic Audit Specialist"
-      },
-      "knowsAbout": [
-        "Regulatory Risk Advisory",
-        "Tax Structuring Advisory",
-        "Governance Advisory",
-        "Forensic Readiness",
-        "IPO Readiness Advisory"
-      ]
-    }
-    </script>
   </body>
 </html>

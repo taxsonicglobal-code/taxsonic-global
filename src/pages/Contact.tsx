@@ -59,8 +59,7 @@ export default function Contact() {
                   Request Received
                 </h2>
                 <p className="text-muted-foreground">
-                  Your request has been received and reviewed personally.
-                  If aligned, we’ll respond within 1–2 business days.
+                  “Your submission has been received. If aligned, we will reach out to take the discussion forward.”
                 </p>
               </div>
             ) : (

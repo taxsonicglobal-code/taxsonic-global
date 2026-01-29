@@ -1,8 +1,10 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "has": [{ "type": "host", "value": "taxsonicglobal.com" }],
+      "destination": "https://www.taxsonicglobal.com/$1",
+      "permanent": true
     }
   ]
 }
